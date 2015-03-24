@@ -1,0 +1,43 @@
+.fa-file-xls-o:before {
+content: "\f1c3";
+}
+.fa-file-xlsx-o:before {
+content: "\f1c3";
+}
+.fa-file-zip-o:before {
+content: "\f1c6";
+}
+.fa-file-rar-o:before {
+content: "\f1c6";
+}
+.fa-file-doc-o:before {
+content: "\f1c2";
+}
+.fa-file-docx-o:before {
+content: "\f1c2";
+}
+.fa-file-ppt-o:before {
+content: "\f1c4";
+}
+.fa-file-pptx-o:before {
+content: "\f1c4";
+}
+.fa-file-txt-o:before {
+content: "\f0f6";
+}
+
+.fa-file-mp3-o:before {
+content: "\f1c7";
+}
+.fa-file-wma-o:before {
+content: "\f1c7";
+}
+.fa-file-flac-o:before {
+content: "\f1c7";
+}
+.fa-file-m4a-o:before {
+content: "\f1c7";
+}
+.fa-file-[*]-o:before {
+content: "\f1c7";
+}

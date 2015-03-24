@@ -1,3 +1,4 @@
+
 <div xmlns="http://www.w3.org/1999/xhtml" lang="en"
 	 xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
 	 xmlns:flux="http://typo3.org/ns/FluidTYPO3/Flux/ViewHelpers"
@@ -20,21 +21,68 @@
 			<flux:grid.row>
 				<flux:grid.column colPos="0" label="Main Content"/>
 			</flux:grid.row>
+			<flux:grid.row>
+				<flux:grid.column colPos="1" label="Head"/>
+			</flux:grid.row>
 		</flux:grid>
 	</f:section>
 
 	<f:section name="Preview">
 	</f:section>
 
+
+	
+	
 	<f:section name="Main">
+
 		<div class="row" role="main">
 			<div class="col-md-12" role="section">
 				<v:content.render column="0"/>
-				<f:if condition="{v:variable.typoscript(path: 'lib.addthis.display')}">
-					<f:render section="AddThis" partial="AddThis" optional="TRUE" arguments="{_all}"/>
-				</f:if>
 			</div>
 		</div>
+
+				
+</div>			
+			<!--	<div class="homenewwrap" role="banner" style="background-image:url(http://www.provincia.livorno.it/musmed/fileadmin/administrator/dino01_large.jpg)"> 
+			
+				<div class="homenewwrap" role="banner"> 
+					<v:content.render column="0" pageUid="164"/> 
+								
+
+			</div>	-->
+
+<div class="container">
+				<div class="row" role="main">
+					<div class="col-md-12" role="section">
+						<div class="row">
+							<div class="col-md-6 newslisthome">
+													<v:content.render column="0" pageUid="166"/>
+													<f:cObject typoscriptObjectPath="lib.homenews" />	
+<v:content.render column="0" pageUid="253"/>													
+				
+
+							</div>
+							<div class="col-md-6  ">
+						<v:content.render column="0" pageUid="165"/>
+						<v:content.render column="0" pageUid="249"/>	
+						<v:content.render column="0" pageUid="254"/>		
+							</div>
+						</div>
+						
+		<!--		<f:if condition="{v:variable.typoscript(path: 'lib.addthis.display')}">
+					<f:render section="AddThis" partial="AddThis" optional="TRUE" arguments="{_all}"/>
+				</f:if> -->
+					</div>
+</div>
+
+</div>
+<hr>
+
+
+			
+<div class="container">
+		
+		
 	</f:section>
 
 </div>

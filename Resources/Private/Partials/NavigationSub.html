@@ -13,6 +13,7 @@
 
 			<f:if condition="{menu}">
 				<nav role="navigation">
+				<div class="bs-docs-sidebar">
 					<ul class="nav navbar-list bs-docs-sidenav affix-top">
 						<f:for each="{menu}" as="item" iteration="iteration">
 							<li class="{item.class}">
@@ -28,6 +29,7 @@
 							</li>
 						</f:for>
 					</ul>
+					</div>
 				</nav>
 			</f:if>
 		</v:page.menu>

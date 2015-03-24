@@ -17,14 +17,26 @@ $EM_CONF[$_EXTKEY] = array(
 	'author_email' => 'support@ecodev.ch',
 	'category' => 'misc',
 	'author_company' => 'Ecodev',
+	'shy' => '',
+	'dependencies' => 'cms,fluidpages,vhs',
+	'conflicts' => '',
+	'priority' => '',
+	'module' => '',
 	'state' => 'beta',
-	'version' => '1.2.0-dev',
+	'internal' => '',
+	'uploadfolder' => 0,
+	'createDirs' => '',
+	'modify_tables' => '',
+	'clearCacheOnLoad' => 1,
+	'lockType' => '',
+	'version' => '1.0.0',
 	'constraints' => array(
 		'depends' => array(
 			'typo3' => '6.2.0-6.2.99',
 			'flux' => '',
 			'fluidpages' => '',
 			'fluidcontent' => '',
+			'fluidcontent_bootstrap' => '',
 			'fluidcontent_core' => '',
 			'fluidbootstraptheme' => '',
 			'vhs' => '',
@@ -37,3 +49,5 @@ $EM_CONF[$_EXTKEY] = array(
 	'suggests' => array(
 	),
 );
+
+?>

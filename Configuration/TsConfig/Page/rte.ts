@@ -1,8 +1,116 @@
 /**
- * Rich Text Editor Setup
- *
- * @author Fabien Udriot <fabien.udriot@ecodev.ch>
- */
+* Rich Text Editor Setup
+*
+* @author Fabien Udriot <fabien.udriot@ecodev.ch>
+*/
+
+RTE.classes {
+
+code {
+name = code
+value = padding: 2px 6px;font-size: 85%;color: #c7254e;background-color: #f9f2f4;border-radius: 4px;
+}
+alert-info {
+name = alert-info
+value = color: #3a87ad;padding: 8px 35px 8px 14px;text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);border: 1px solid #bce8f1;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;color: #3a87ad;background-color: #d9edf7;
+}
+alert-warning {
+name = alert-warning
+value = padding: 8px 35px 8px 14px;		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);	background-color: #fcf8e3;	border: 1px solid #fbeed5;	-webkit-border-radius: 4px;	-moz-border-radius: 4px;	border-radius: 4px;	color: #c09853;
+}
+alert-error {
+name = alert-error
+value = padding: 8px 35px 8px 14px;		text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);	border: 1px solid #eed3d7;	-webkit-border-radius: 4px;	-moz-border-radius: 4px;	border-radius: 4px;	color: #b94a48;	background-color: #f2dede;
+}
+alert-success {
+name = alert-success 
+value = 	padding: 8px 35px 8px 14px;	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);	border: 1px solid #d6e9c6;	-webkit-border-radius: 4px;	-moz-border-radius: 4px;	border-radius: 4px;	color: #468847;	background-color: #dff0d8;
+}
+
+indent {
+name = indent
+value = margin-left: 2.5em;
+}
+read-more-content{
+name = read-more-content 
+value = 		background-color: #F2F5A9;	font-style: italic;
+}
+lead {
+name = lead 
+value =font-size: 21px!important;font-weight: 200;line-height: 30px;
+}
+blockquote {
+name = blockquote 
+value =padding: 0 0 0 15px;margin: 0 0 20px;border-left: 5px solid #eeeeee;margin-bottom: 0;font-size: 17.5px!important;font-weight: 300;line-height: 1.25;
+}
+
+
+primary {
+name = primary 
+value =	color: #dd4814;
+}
+muted {
+name = muted 
+value =	color: #aea79f;
+}
+warning {
+name = warning 
+value =	color: #c09853;
+}
+danger {
+name = danger 
+value =	color: #b94a48;
+}
+success {
+name = success 
+value =	color: #468847;
+}
+info {
+name = info 
+value =	color: #3a87ad;
+}
+
+small {
+name = small 
+value =	font-size: 10px!important;
+}
+
+label {
+name = label
+value =	 -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 2px 4px; font-size: 11.844px; font-weight: bold;line-height: 14px;: #ffffff;t-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);White-space: nowrap;vertical-align: baseline;background-color: #999999;
+}
+label-important {
+name = label-important
+value =	 -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 2px 4px; font-size: 11.844px; font-weight: bold;line-height: 14px;: #ffffff;t-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);White-space: nowrap;vertical-align: baseline;background-color: #df382c;
+}
+label-success {
+name = label-success
+value =	 -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 2px 4px; font-size: 11.844px; font-weight: bold;line-height: 14px;: #ffffff;t-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);White-space: nowrap;vertical-align: baseline;background-color: #025A0F;
+}
+label-warning {
+name = label-warning
+value =	 -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 2px 4px; font-size: 11.844px; font-weight: bold;line-height: 14px;: #ffffff;t-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);White-space: nowrap;vertical-align: baseline;background-color: #d4814;
+}
+label-info {
+name = label-info
+value =	 -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 2px 4px; font-size: 11.844px; font-weight: bold;line-height: 14px;: #ffffff;t-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);White-space: nowrap;vertical-align: baseline;background-color: #772953;
+}
+label-inverse {
+name = label-inverse
+value =	 -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; padding: 2px 4px; font-size: 11.844px; font-weight: bold;line-height: 14px;: #ffffff;t-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);White-space: nowrap;vertical-align: baseline;background-color: #333;
+}
+
+
+
+
+
+
+
+
+}
+
+
+
 RTE {
 
 	// Default RTE configuration (all tables)
@@ -12,10 +120,18 @@ RTE {
 		defaultLinkTarget = _top
 
 		// Buttons to show
-		showButtons = *
+		//showButtons = *
+		showButtons ( 
+formatblock, blockstyle, textstyle, linebreak, bold, italic, underline, strikethrough, bar, orderedlist, unorderedlist, bar, left, center, right, justifyfull, linebreak, copy, cut, paste, bar, undo, redo, bar, findreplace, removeformat, bar, link, unlink, linkmaker, bar, imagemaker, bar, table, bar, line, bar, insertparagraphbefore, insertparagraphafter, bar, chMode, showhelp, about, linebreak, tableproperties, rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, columninsertbefore, columninsertafter, columndelete, columnsplit, cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge, image
+)
+
+		## Enable the image button
+showButtons := addToList(image)
 
 		// Toolbar order
-		toolbarOrder = formatblock, blockstyle, textstyle, linebreak, bold, italic, underline, strikethrough, bar, textcolor, bgcolor, bar, orderedlist, unorderedlist, bar, left, center, right, justifyfull, linebreak, copy, cut, paste, bar, undo, redo, bar, findreplace, removeformat, bar, link, unlink, linkcreator, bar, imageeditor, bar, table, bar, line, bar, insertparagraphbefore, insertparagraphafter, bar, chMode, showhelp, about, linebreak, tableproperties, rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, columninsertbefore, columninsertafter, columndelete, columnsplit, cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+		toolbarOrder = formatblock, blockstyle, textstyle, linebreak, bold, italic, underline, strikethrough, bar, textcolor, bgcolor, bar, orderedlist, unorderedlist, bar, left, center, right, justifyfull, linebreak, copy, cut, paste, bar, undo, redo, bar, findreplace, removeformat, bar, link, unlink, linkmaker, bar, imagemaker, image, bar, table, bar, line, bar, insertparagraphbefore, insertparagraphafter, bar, chMode, showhelp, about, linebreak, tableproperties, rowproperties, rowinsertabove, rowinsertunder, rowdelete, rowsplit, columninsertbefore, columninsertafter, columndelete, columnsplit, cellproperties, cellinsertbefore, cellinsertafter, celldelete, cellsplit, cellmerge
+		
+		buttons.image.options.removeItems = textcolor
 
 		RTEHeightOverride = 700
 		RTEWidthOverride = 700
@@ -29,9 +145,6 @@ RTE {
 		buttons.textstyle.REInlineTags >
 		buttons.blockstyle.tags.table.allowedClasses >
 
-		# Specify the maximum width of an image, default is 300.
-		buttons.image.options.magic.maxWidth = 760
-
 		// Disable contextual menu
 		contextMenu.disabled = 1
 
@@ -39,13 +152,13 @@ RTE {
 		showStatusBar = 1
 
 		// RTE stylesheet
-		contentCSS = EXT:speciality/Resources/Public/Source/StyleSheets/Site/rte.css
+		contentCSS = typo3conf/ext/speciality/Resources/Public/Build/StyleSheets/rte.css
 
 		// Remove HTML tags and their content
 		removeTagsAndContents =
 
 		// Use CSS formatting when possible
-		useCSS = 0
+		useCSS = 1
 
 		// Processing rules
 		proc {
@@ -63,7 +176,7 @@ RTE {
 			remapParagraphTag = p
 
 			// Tags allowed
-			allowTags = a, abbr, acronym, address, blockquote, b, br, caption, center, cite, code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li, link, ol, p, pre, q, sdfield, span, strike, strong, sub, sup, table, thead, tbody, tfoot, td, th, tr, tt, u, ul
+			allowTags = lead, a, abbr, acronym, address, blockquote, b, br, caption, center, cite, code, div, em, font, h1, h2, h3, h4, h5, h6, hr, i, img, li, link, ol, p, pre, q, sdfield, span, strike, strong, sub, sup, table, thead, tbody, tfoot, td, th, tr, tt, u, ul
 
 			// Tags denied
 			denyTags >
@@ -140,6 +253,3 @@ RTE {
 
 // Frontend RTE configuration
 RTE.default.FE < RTE.default
-
-// For the Frontend purpose, so that image config about "maxWidth" is propagated.
-RTE.buttons.image < RTE.default.buttons.image

@@ -1,3 +1,4 @@
+{namespace n=Tx_News_ViewHelpers}
 <f:layout name="Page"/>
 <div xmlns="http://www.w3.org/1999/xhtml" lang="en"
      xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
@@ -6,27 +7,44 @@
 
 	<f:section name="Header">
 
-		<!-- Default header -->
-		<header class="jumbotron" role="banner">
+	<v:switch value="{page.uid}">
+			<v:case case="1" break="true">
+								<v:content.render column="1"/>
+			</v:case>
+			<v:case case="202" break="true">
+				<header class="headernohome">
+					<div class="bg"></div>
+						<div class="container">
+						<h1><f:cObject typoscriptObjectPath="lib.newstitle" />			
+						
+					
+						</div>
+				</header>
+			</v:case>
+			<v:case case="252" break="true">
+				<header class="headernohome">
+					<div class="bg"></div>
+						<div class="container">
+						<h1><f:cObject typoscriptObjectPath="lib.newstitle" />			
+						
+					
+						</div>
+				</header>
+			</v:case>
+		<v:case case="default" break="true">
+				<header class="headernohome">
+					<div class="bg"></div>
+						<div class="container">
+						<h1>{page.title}</h1>
+						<p>{page.subtitle}</p>
+						</div>
+				</header>
+		</v:case>
 
-			<f:render section="NavigationSpecial" partial="NavigationSpecial" optional="TRUE" arguments="{_all}"/>
+		</v:switch>	
+	
 
-			<f:image src="EXT:speciality/Resources/Public/Build/Images/logo.png" alt="Logo" class="pull-left"/>
-			<h1>My company name</h1>
-
-			<p class="lead">
-				<f:translate key="lead-text" extensionName="speciality"/>
-
-				<v:security.allow anyBackendUser="TRUE">
-					<br/>
-					<small style="font-size: 65%;  padding-left: 0" class="alert alert-success">
-						<f:translate key="lead-text-tip" extensionName="speciality"/>
-						<span style=" font-size: 12px; font-family: monospace;">EXT:speciality/Resources/Private/Language/language.xlf</span>
-					</small>
-				</v:security.allow>
-			</p>
-		</header>
-
+		
 	</f:section>
 
 </div>

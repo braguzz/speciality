@@ -58,6 +58,7 @@ config {
 	# The <base> tag in the header of the document which is used by RealURL
 	# Not set for the time being to stay portable
 	#baseURL = http://{$config.domain}/
+	
 
 	# For pages
 	index_enable = {$config.index_enable}
@@ -86,7 +87,7 @@ config {
     # Enable RealURL
     tx_realurl_enable = 1
 
-    #
+    # 
     sendCacheHeaders = 1
 
     #

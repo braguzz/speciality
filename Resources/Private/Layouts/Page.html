@@ -1,20 +1,37 @@
+
 <f:layout name="Page" />
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers"
+	 id="wrap">
+
 
 <f:render section="Navigation" partial="Navigation" arguments="{_all}"/>
-<f:render section="RestrictedContent" partial="RestrictedContent" arguments="{_all}"/>
-<div class="container">
-	<f:render section="LanguageMenu" partial="LanguageMenu" optional="true" arguments="{_all}"/>
-	<f:render section="Header" partial="Header" optional="true" arguments="{_all}"/>
-	<f:render section="Breadcrumb" partial="Breadcrumb" optional="true" arguments="{_all}"/>
-	<f:render section="HeroUnit" partial="HeroUnit" optional="true" arguments="{_all}"/>
+<f:render section="Header" partial="Header" optional="true" arguments="{_all}"/>
 
+
+
+
+
+<div class="container">
+  <!--  <f:render section="HeroUnit" partial="HeroUnit" optional="true" arguments="{_all}"/>-->
+  <!--  	<f:render section="LanguageMenu" partial="LanguageMenu" optional="true" arguments="{_all}"/>-->
+	<f:render section="Breadcrumb" partial="Breadcrumb" optional="true" arguments="{_all}"/>
+
+</div>
+
+
+<div class="container">
 	<!--TYPO3SEARCH_begin-->
 	<f:render section="Main"/>
 	<!--TYPO3SEARCH_end-->
 
-	<f:render section="Footer" partial="Footer"/>
+	<f:render section="Disqus" partial="Disqus" optional="true" arguments="{_all}"/>
+	
 </div>
-
+</div>
+<f:render section="Footer" partial="Footer"/>
 <v:page.footer>
 	<f:render section="Stats" partial="Stats" arguments="{_all}"/>
 </v:page.footer>
+

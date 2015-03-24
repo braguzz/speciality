@@ -14,7 +14,8 @@
 						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="{v:site.url()}" tabindex="1">
-						<v:site.name/>
+			<!--			<v:site.name/>-->
+			<img class="img-responsive" style="max-width:100px; margin-top: -1px; width: 88px; height: 30px;" src="http://www.provincia.livorno.it/musmed/fileadmin/administrator/logomuseocambiato.png">
 					</a>
 				</div>
 				<div class="navbar-collapse collapse">
@@ -27,18 +28,18 @@
 									   data-placement="bottom"
 									   title="{mainPage.abstract}"
 									   target="{f:if(condition: '{mainPage.target}', then: '{mainPage.target}', else: '_self')}"
-									   class="{mainPage.class}">
-										<f:if condition="{mainPage.nav_title} != '' ">
-											<f:then>{mainPage.nav_title}</f:then>
-											<f:else>{mainPage.title}</f:else>
-										</f:if>
-									</a>
+									   class="{mainPage.class}">{mainPage.title}</a>
 								</li>
 							</f:for>
 						</ul>
 					</v:page.menu>
+<ul class="nav pull-right" style="margin-top: 13px;">
 
-					<f:render section="SearchForm" partial="SearchForm" optional="true" arguments="{_all}"/>
+        <v:page.languageMenu hideNotTranslated="1" order="0,2" class="list-inline" defaultLanguageLabel="It" 
+		                     defaultIsoFlag="it"/>
+							 
+      </ul>
+				<!--	<f:render section="SearchForm" partial="SearchForm" optional="true" arguments="{_all}"/>-->
 				</div>
 				<!--/.nav-collapse -->
 			</div>

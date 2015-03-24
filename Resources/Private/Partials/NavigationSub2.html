@@ -1,0 +1,37 @@
+<f:layout name="Page"/>
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en"
+     xmlns:v="http://typo3.org/ns/FluidTYPO3/Vhs/ViewHelpers"
+     xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+
+
+	<f:section name="NavigationSub2">
+		<!-- submenu navigation, collapsible -->
+		<v:page.menu entryLevel="{settings.entryLevel -> v:math.ceil() -> v:math.sum(b: 1)}" includeSpacers="TRUE" useShortcutData="TRUE">
+			<f:if condition="{menu}">
+				<nav class="navbar-default" role="navigation">
+					<div class="container subnav navbar">
+						<div class="navbar-inner">
+							<ul class="nav navbar-nav">
+								<f:for each="{menu}" as="submenuPage" iteration="iteration">
+									<f:if condition="{submenuPage.doktype} == 199">
+										<f:then>
+											<li class="disabled">
+												<f:if condition="{iteration.isFirst}" else="&nbsp;&nbsp;" />
+												<span class="navbar-text">{submenuPage.linktext}:</span>
+												&nbsp;
+											</li>
+										</f:then>
+										<f:else>
+											<li class="{submenuPage.class}"><a tabindex="{iteration.cycle -> v:math.sum(b: 200)}" href="{submenuPage.link}" class="{submenuPage.class}">{submenuPage.linktext}</a></li>
+										</f:else>
+									</f:if>
+								</f:for>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</f:if>
+		</v:page.menu>
+	</f:section>
+
+</div>

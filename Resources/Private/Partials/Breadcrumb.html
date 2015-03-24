@@ -5,9 +5,16 @@
 
 
 	<f:section name="Breadcrumb">
-		<div>
+		<v:switch value="{page.uid}">
+			<v:case case="1" break="true">
+			</v:case>
+		<v:case case="default" break="true">
+				<div>
 			<v:page.breadCrumb class="breadcrumb" showCurrent="1"/>
 		</div>
+		</v:case>
+
+		</v:switch>
 	</f:section>
 
 </div>

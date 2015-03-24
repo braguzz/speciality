@@ -2,37 +2,11 @@ module.exports = (grunt) ->
 	grunt.initConfig
 		pkg: grunt.file.readJSON("package.json")
 		dir:
-			components: "Resources/Public/BowerComponents"
+			components: "Resources/Public/WebComponents"
 			build: "Resources/Public/Build"
 			source: "Resources/Public/Source"
 			temp: "Temporary"
-
-	# JavaScript files
-		js:
-			for_production: [
-				"<%= dir.components %>/jquery/dist/jquery.min.js"
-				#"<%= dir.components %>/modernizr/modernizr.js" comment out if needed!!
-				"<%= dir.components %>/bootstrap/dist/js/bootstrap.min.js"
-			]
-			raw_files: [
-				"<%= jshint.files %>"
-			]
-			for_development: [
-				"<%= dir.components %>/jquery/dist/jquery.js"
-				#"<%= dir.components %>/modernizr/modernizr.js" comment out if needed!!
-				"<%= dir.components %>/bootstrap/dist/js/bootstrap.js"
-			]
-
-	# CSS files
-		css:
-			raw_files: [
-				"<%= dir.temp %>/Source/*.css"
-				"<%= dir.components %>/jQuery-Validation-Engine/css/validationEngine.jquery.css"
-				"<%= dir.components %>/jquery.ui/themes/base/core.css" # required for DatePicker
-				"<%= dir.components %>/jquery.ui/themes/base/datepicker.css"
-				"<%= dir.components %>/jquery.ui/themes/base/theme.css" # required for DatePicker
-				"<%= dir.source %>/StyleSheets/Site/*.css"
-			]
+			ext_jquerycolorbox: "../jquerycolorbox/res"
 
 	############################ Assets ############################
 
@@ -41,7 +15,7 @@ module.exports = (grunt) ->
 	##
 		clean:
 			temporary:
-				src: ["<%= dir.temp %>"]
+				src: ["Temporary"]
 
 	##
 	# Assets: copy some files to the distribution dir
@@ -59,46 +33,63 @@ module.exports = (grunt) ->
 					dest: "<%= dir.build %>/Fonts/"
 					filter: "isFile"
 				]
+			images:
+				files: [
+					# includes files within path
+					expand: true
+					flatten: true
+					src: [
+						"<%= dir.temp %>/**"
+					]
+					dest: "<%= dir.build %>/Images/"
+					filter: "isFile"
+				]
 
 	##
 	# Assets: optimize assets for the web
 	##
 		pngmin:
+			ext_jquerycolorbox:
+				options:
+					ext: '.png'
+				files: [
+					src: '<%= dir.ext_jquerycolorbox %>/css/images/*.png'
+					dest: '<%= dir.temp %>'
+				]
 			images:
 				options:
 					ext: '.png'
 				files: [
 					src: '<%= dir.source %>/Images/*.png'
-					dest: "<%= dir.build %>/Images/"
+					dest: '<%= dir.temp %>'
 				]
 
 		gifmin:
 			src: [
-				src: '<%= dir.source %>/Images/*.gif'
+				'<%= dir.ext_jquerycolorbox %>/css/images/*.gif'
 			],
-			dest: "<%= dir.build %>/Images/"
+			dest: '<%= dir.temp %>'
 
 		jpgmin:
 			src: [
-				src: '<%= dir.source %>/Images/*.jpg'
+				'<%= dir.ext_jquerycolorbox %>/css/images/*.jpg'
 			],
-			dest: "<%= dir.build %>/Images/"
+			dest: '<%= dir.temp %>'
 
 	############################ StyleSheets ############################
 
 	##
-	# Use me if needed!
 	# StyleSheet: importation of "external" stylesheets form third party extensions.
 	##
-#		import:
-#			jquerycolorbox:
-#				files:
-#					"<%= dir.temp %>/Source/colorbox.css": "<%= dir.ext_jquerycolorbox %>/css/*.css"
-#				options:
-#					replacements: [
-#						pattern: 'images/',
-#						replacement: '../Images/'
-#					]
+		import:
+			jquerycolorbox:
+				files:
+					"<%= dir.temp %>/Source/colorbox.css": "<%= dir.ext_jquerycolorbox %>/css/*.css"
+				options:
+					replacements: [
+						pattern: 'images/',
+						replacement: '../Images/'
+					]
 
 	##
 	# StyleSheet: compiling to CSS
@@ -107,11 +98,10 @@ module.exports = (grunt) ->
 			build: # Target
 				options: # Target options
 				# output_style = expanded or nested or compact or compressed
-					sourcemap: "none"
 					style: "expanded"
 
 				files:
-				# must come last in the concatenation chain.
+				# must comme last in the concatation process
 					"<%= dir.temp %>/Source/zzz_main.css": "<%= dir.source %>/StyleSheets/Sass/main.scss"
 
 
@@ -123,8 +113,9 @@ module.exports = (grunt) ->
 			build:
 				files:
 					"<%= dir.build %>/StyleSheets/site.min.css": [
-						"<%= dir.build %>/StyleSheets/site.css"
+						"<%= dir.temp %>/Build/*"
 					]
+
 
 	############################ JavaScript ############################
 
@@ -161,12 +152,9 @@ module.exports = (grunt) ->
 	##
 		uglify:
 			options:
-				banner: "/*! <%= pkg.name %> <%= grunt.template.today(\"dd-mm-yyyy\") %> */\n\n"
+				banner: "/*! <%= pkg.name %> <%= grunt.template.today(\"dd-mm-yyyy\") %> */\n"
 			dist:
 				files:
-#					"<%= dir.build %>/JavaScript/site.min.js": [
-#						"<%= dir.build %>/JavaScript/site.js"
-#					]
 					"<%= dir.temp %>/main.min.js": ["<%= jshint.files %>"]
 
 	########## concat css + js ############
@@ -174,20 +162,18 @@ module.exports = (grunt) ->
 			css:
 				src: [
 					"<%= dir.temp %>/Source/*.css"
-					"<%= dir.source %>/StyleSheets/Site/*.css"
+					"<%= dir.source %>/StyleSheets/**/*.css"
 				],
-				dest: "<%= dir.build %>/StyleSheets/site.css",
+				dest: "<%= dir.temp %>/Build/site.css",
 			options:
-				separator: "\n\n"
-			js_dev:
+				separator: "\n"
+			js:
 				src: [
-					"<%= js.for_development %>"
-					"<%= js.raw_files %>"
-				]
-				dest: "<%= dir.build %>/JavaScript/site.js"
-			js_prod:
-				src: [
-					"<%= js.for_production %>"
+					"<%= dir.components %>/jquery/dist/jquery.min.js"
+					#"<%= dir.components %>/modernizr/modernizr.js" comment out if needed!!
+					"<%= dir.components %>/bootstrap/dist/js/bootstrap.min.js"
+					"<%= dir.ext_jquerycolorbox %>/js/jquery.colorbox-min.js"
+					"<%= dir.ext_jquerycolorbox %>/js/main.js"
 					"<%= dir.temp %>/main.min.js"
 				]
 				dest: "<%= dir.build %>/JavaScript/site.min.js"
@@ -236,9 +222,9 @@ module.exports = (grunt) ->
 
 	# Tasks
 	grunt.registerTask "build", ["build-js", "build-css", "build-icons"]
-	grunt.registerTask "build-js", ["jshint", "uglify", "concat:js_dev", "concat:js_prod", "clean"]
-	grunt.registerTask "build-css", ["sass", "concat:css", "cssmin", "clean"]
-	grunt.registerTask "build-icons", ["pngmin", "clean"]
+	grunt.registerTask "build-js", ["jshint", "uglify", "concat:js", "clean"]
+	grunt.registerTask "build-css", ["sass", "concat:css", "import", "cssmin", "clean"]
+	grunt.registerTask "build-icons", ["pngmin", "gifmin", "jpgmin","copy", "clean"]
 	grunt.registerTask "css", ["build-css"]
 	grunt.registerTask "js", ["build-js"]
 	grunt.registerTask "icons", ["build-icons"]

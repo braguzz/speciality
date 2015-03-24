@@ -41,10 +41,10 @@
 			</trans-unit>
 
 			<trans-unit id="lead-text">
-				<source>Acme - a company making everything</source>
+				<source>Sei pronto?</source>
 			</trans-unit>
 			<trans-unit id="lead-text-tip">
-				<source>Tip: clear the "system cache" in the Backend after editing a label.</source>
+				<source></source>
 			</trans-unit>
 		</body>
 	</file>

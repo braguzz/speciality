@@ -6,7 +6,8 @@
 	<f:section name="Footer">
 
 		<footer role="contentinfo">
-
+		<div id="footer">
+		 <div class="container">
 			<!-- sitemap-->
 			<div class="row">
 				<v:page.menu entryLevel="0" levels="2" includeSpacers="FALSE" expandAll="TRUE">
@@ -17,7 +18,7 @@
 								<ul class="list-unstyled">
 									<li class="{menuPage.class}">
 										<a href="{menuPage.link}" class="{menuPage.class}">
-											<h4>{menuPage.title}</h4>
+											<h6 class="footer-title">{menuPage.title}</h6>
 										</a>
 									</li>
 
@@ -27,7 +28,7 @@
 											<f:for each="{menu}" as="subMenuPage" iteration="subIteration">
 												<li class="{subMenuPage.class}">
 													<a href="{subMenuPage.link}" class="{subMenuPage.class}">
-														{subMenuPage.title}
+														<small>{subMenuPage.title}</small>
 													</a>
 												</li>
 											</f:for>
@@ -41,26 +42,34 @@
 				</v:page.menu>
 			</div>
 			<!-- /sitemap-->
+<div class="row">
+          <div class="col-xs-5">
+            <h3 class="footer-title"><v:content.render column="0" pageUid="163"/></h3>
+            <p><f:cObject typoscriptObjectPath="lib.footer"/>
+            </p>
 
 
-			<small>
-				<v:security.allow anyBackendUser="TRUE">
-					<div class="alert alert-success">
-						<p>
-							Content of the footer below is editable by an editor in the Backend in <span
-								style=" font-size: 12px; font-family: monospace;">"General Storage" > "Content
-								elements"</span>. To remove this message edit
-							file <span style=" font-size: 12px; font-family: monospace;">EXT:speciality/Resources/Private/Partials/Footer.html</span>
-						</p>
-					</div>
-				</v:security.allow>
-			</small>
+          </div> <!-- /col-xs-5 -->
+		  <div class="col-xs-2 text-center ">
+	
+				<a href="https://www.provincia.livorno.it" >
+				<img class="img-responsive  img-circle center-block no-resizehomeicon" src="http://www.provincia.livorno.it/fileadmin/Administrators/Immagini/stemmaprovliv.gif">
+				
+<h7>
+	Provincia di Livorno
+</h7>
+</a>
+				</div>
+		  
+		  
+	<v:content.render column="0" pageUid="255"/>
 
-			<small>
-				<f:cObject typoscriptObjectPath="lib.footer"/>
-			</small>
+        </div>
 
 
+
+</div>
+</div>
 		</footer>
 	</f:section>
 
